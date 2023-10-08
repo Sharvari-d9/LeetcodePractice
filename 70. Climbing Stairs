@@ -1,0 +1,28 @@
+//Solution 1
+class Solution {
+    public int climbStairs(int n) {
+        int n1 = 1;
+        int n2 = 0;
+        int sum = 0;
+        for(int i=1;i<=n+1;i++){
+           sum = n1+ n2;
+           n1 = n2;
+           n2 = sum; 
+        }
+        return sum;
+    }
+}
+//solution 2
+public class Solution {
+    public int climbStairs(int A) {
+        return fib(A);       
+    }
+    public int fib(int A){
+        if(A<2)
+        {
+            return 1;
+        }
+        else
+        return fib(A-1) + fib(A-2);
+    }
+}
