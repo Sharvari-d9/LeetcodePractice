@@ -1,0 +1,55 @@
+//My Solution 
+// Runtime
+// 5
+// ms
+// Beats
+// 59.49%
+// of users with Java
+// Memory
+// 44.66
+// MB
+// Beats
+// 89.61%
+// of users with Java
+
+class MinStack {
+    Stack <Integer> stack = new Stack();
+    Stack<Integer> minValue = new Stack();
+    public MinStack() {
+        
+    }
+    public void push(int val) {
+        if(stack.isEmpty())
+        minValue.push(val);
+        else{
+            if(val < minValue.peek())
+            minValue.push(val);
+            else
+            minValue.push(minValue.peek());
+        }
+        stack.push(val);        
+    }
+    
+    public void pop() {
+        minValue.pop();
+        stack.pop();
+
+    }
+    
+    public int top() {
+        return(stack.peek());
+    }
+    
+    public int getMin() {
+        return minValue.peek();
+    }
+}
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack obj = new MinStack();
+ * obj.push(val);
+ * obj.pop();
+ * int param_3 = obj.top();
+ * int param_4 = obj.getMin();
+ */
