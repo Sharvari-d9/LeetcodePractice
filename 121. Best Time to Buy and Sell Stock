@@ -1,0 +1,42 @@
+
+//My first brute force solution using 2 pointers, working for the 2 test cases but doesnt cover all cases
+class Solution {
+    public int maxProfit(int[] prices) {
+        int bpi = 0;
+        int j = prices.length-1;
+        
+        for(int l = 1; l< prices.length; l ++)
+        {
+            if(prices[l]<prices[bpi])
+            bpi = l;
+        }
+        if(bpi==j)
+        return 0;
+        int maxprof =0;
+        while(j>bpi)
+        {
+            if(prices[j]-prices[bpi]>maxprof)
+            maxprof = prices[j]-prices[bpi];
+            j--;
+        }
+        return maxprof;
+    }
+}
+
+//Observation , it gets a bit difficult for me in such questions array manipulations and 
+//and finding combos between array elements
+
+//optimized correct code 
+ class Solution {
+    public int maxProfit(int[] prices) {
+        int min_price = prices[0];
+        int maxprof = 0;
+
+        for(int i=1;i<prices.length;i++){
+            maxprof = Math.max(maxprof,prices[i]-min_price);
+            min_price = Math.min(prices[i],min_price);
+        }
+
+        return maxprof;
+    }
+}
