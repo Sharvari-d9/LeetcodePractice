@@ -9,6 +9,8 @@
  *     }
  * }
  */
+
+ //This is Floyd's Cycle detection algorithm
 public class Solution {
 
     public boolean hasCycle(ListNode head) {
@@ -25,6 +27,9 @@ public class Solution {
         return false;                                
     }
 }
+
+//time complexity O(n)
+//Space complexity O(1)
 
 //Using HashSet
 
