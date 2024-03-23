@@ -1,0 +1,28 @@
+//Ierative solution
+//challenges faced null pointer exception for list1.val < list2.val comparison
+//Error was the while statement was with || before, after changing to && it worked fine.
+//understanding conditional operators working for our logic, && was the correct one rather then || 
+//coz if any of node becomes null the loop needs to stop
+
+public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode l3 = new ListNode();
+        ListNode list3 = l3;
+
+        while(list1 != null && list2 != null)
+        {
+            if(list1.val < list2.val)
+            {
+                l3.next = list1;
+                list1 = list1.next;
+            }
+            else
+            {
+                l3.next = list2;
+                list2 = list2.next;
+            }
+
+        l3 = l3.next;
+        }
+        if(list1 == null) l3.next = list2;
+        if(list2 == null) l3.next = list1;
+    return list3.next;
