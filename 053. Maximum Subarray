@@ -1,3 +1,43 @@
+// Brute Force Approach , find sum of all possible sub array and track the max sum.
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int max_sum= Integer.MIN_VALUE;
+        for(int i = 0 ; i<nums.length; i++)
+        {   
+            for(int j=i; j< nums.length ; j++)
+            {
+                int sum = 0;
+                for(int k =i; k<=j;k++)
+                sum+=nums[k];
+
+                if(sum>max_sum) max_sum = sum;
+            }
+            
+        }
+        return(max_sum);
+    }
+}
+//Complexity O(n^3)
+//Just a better Brute force solution
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int max_sum= Integer.MIN_VALUE;
+        for(int i = 0 ; i<nums.length; i++)
+        {   int sum = 0;
+            for(int j=i; j< nums.length ; j++)
+            {
+                sum+=nums[j];
+                if(sum>max_sum) max_sum = sum;
+            }
+            
+        }
+        return(max_sum);
+    }
+}
+
+//Complexity O(n^2)
+
+
 //Solution 1
 class Solution {
     public int maxSubArray(int[] nums) {
