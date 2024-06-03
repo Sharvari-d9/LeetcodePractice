@@ -2,8 +2,8 @@ List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
         for(int i=0; i <nums.length;i++)
         {   
-            if(nums[i]>0) break;
-            if(i>0 && nums[i]==nums[i-1]) continue;
+            if(nums[i]>0) break; // coz it doesnt make sense to move forward as it is sorted array and we want the sum to be 0
+            if(i>0 && nums[i]==nums[i-1]) continue; //to move forwars as we dont want duplicates at the same index
             int left = i+1;
             int right = nums.length-1;
             while(left<right)
@@ -13,7 +13,7 @@ List<List<Integer>> result = new ArrayList<>();
             {result.add(Arrays.asList(nums[i],nums[left],nums[right]));
              left++;
              right--;  
-             while(left<right&& nums[left]==nums[left-1])
+             while(left<right&& nums[left]==nums[left-1]) // to not have duplicates at the same position of result lists
              left++; 
             }
             else if(nums[i]+nums[left]+nums[right]<0)
